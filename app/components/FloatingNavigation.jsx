@@ -2,7 +2,11 @@
 
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+
+// Простые рабочие URL изображений из Unsplash
+const getImageUrl = (photoId, width = 400, height = 300) => {
+    return `https://images.unsplash.com/photo-${photoId}?w=${width}&h=${height}&fit=crop&q=80`
+}
 
 const navigationItems = [
     {
@@ -10,35 +14,35 @@ const navigationItems = [
         name: 'Рыбалка',
         target: 'fishing',
         color: '#4a90e2',
-        image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop&auto=format'
+        image: getImageUrl('1544551763-46a013bb70d5')
     },
     {
         id: 2,
         name: 'Экскурсионные программы',
         target: 'tours',
         color: '#50c878',
-        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&auto=format'
+        image: getImageUrl('1506905925346-21bda4d32df4')
     },
     {
         id: 3,
         name: 'Продукция',
         target: 'products',
         color: '#ff6b6b',
-        image: 'https://images.unsplash.com/photo-1604977049386-4c8c8e6b1b3a?w=400&h=300&fit=crop&auto=format'
+        image: getImageUrl('1604977049386-4c8c8e6b1b3a')
     },
     {
         id: 4,
         name: 'Мерч',
         target: 'merch',
         color: '#feca57',
-        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop&auto=format'
+        image: getImageUrl('1441986300917-64674bd600d8')
     },
     {
         id: 5,
         name: 'Снаряжение и приманки',
         target: 'equipment',
         color: '#9b59b6',
-        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format'
+        image: getImageUrl('1578662996442-48f60103fc96')
     }
 ]
 
@@ -259,13 +263,13 @@ export default function BetterFloatingNavigation() {
                     <div className="card-content">
                         <div className="card-border-glow" style={{ background: `linear-gradient(135deg, ${item.color}60, transparent)` }}></div>
                         <div className="card-image-wrapper">
-                            <Image
+                            <img
                                 src={item.image}
                                 alt={item.name}
                                 width={200}
                                 height={200}
                                 className="card-image"
-                                unoptimized
+                                loading="lazy"
                             />
                             <div className="card-overlay" style={{ background: `linear-gradient(to bottom, transparent, ${item.color}80)` }}></div>
                         </div>
