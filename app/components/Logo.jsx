@@ -7,6 +7,20 @@ export default function Logo() {
     const logoInnerRef = useRef(null)
 
     useEffect(() => {
+        // Позиционируем логотип точно по центру экрана (как и карточки)
+        const updateLogoPosition = () => {
+            if (!logoRef.current) return
+
+            const centerX = window.innerWidth / 2
+            const centerY = window.innerHeight / 2 - 100 // Смещено вверх на 100px
+
+            logoRef.current.style.left = `${centerX}px`
+            logoRef.current.style.top = `${centerY}px`
+        }
+
+        updateLogoPosition()
+        window.addEventListener('resize', updateLogoPosition)
+
         const handleMouseMove = (e) => {
             if (!logoInnerRef.current) return
 
@@ -41,6 +55,7 @@ export default function Logo() {
         }
 
         return () => {
+            window.removeEventListener('resize', updateLogoPosition)
             if (logoElement) {
                 logoElement.removeEventListener('mousemove', handleMouseMove)
                 logoElement.removeEventListener('mouseleave', handleMouseLeave)
