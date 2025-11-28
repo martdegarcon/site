@@ -3,46 +3,41 @@
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 
-// Простые рабочие URL изображений из Unsplash
-const getImageUrl = (photoId, width = 400, height = 300) => {
-    return `https://images.unsplash.com/photo-${photoId}?w=${width}&h=${height}&fit=crop&q=80`
-}
-
 const navigationItems = [
     {
         id: 1,
         name: 'Рыбалка',
         target: 'fishing',
         color: '#4a90e2',
-        image: getImageUrl('1544551763-46a013bb70d5')
+        image: '/images/fishing.jpg'
     },
     {
         id: 2,
         name: 'Экскурсионные программы',
         target: 'tours',
         color: '#50c878',
-        image: getImageUrl('1506905925346-21bda4d32df4')
+        image: '/images/tours.jpeg'
     },
     {
         id: 3,
         name: 'Продукция',
         target: 'products',
         color: '#ff6b6b',
-        image: getImageUrl('1604977049386-4c8c8e6b1b3a')
+        image: '/images/products.webp'
     },
     {
         id: 4,
         name: 'Мерч',
         target: 'merch',
         color: '#feca57',
-        image: getImageUrl('1441986300917-64674bd600d8')
+        image: '/images/merch.webp'
     },
     {
         id: 5,
         name: 'Снаряжение и приманки',
         target: 'equipment',
         color: '#9b59b6',
-        image: getImageUrl('1578662996442-48f60103fc96')
+        image: '/images/equipment.jpeg'
     }
 ]
 
