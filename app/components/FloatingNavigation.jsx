@@ -10,35 +10,35 @@ const navigationItems = [
         name: 'Рыбалка',
         target: 'fishing',
         color: '#4a90e2',
-        image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop'
+        image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop&auto=format'
     },
     {
         id: 2,
         name: 'Экскурсионные программы',
         target: 'tours',
         color: '#50c878',
-        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop'
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&auto=format'
     },
     {
         id: 3,
         name: 'Продукция',
         target: 'products',
         color: '#ff6b6b',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1LaLXoo9JAgo3tg4OOXGQ2FnJSQRsoNTBA&s'
+        image: 'https://images.unsplash.com/photo-1604977049386-4c8c8e6b1b3a?w=400&h=300&fit=crop&auto=format'
     },
     {
         id: 4,
         name: 'Мерч',
         target: 'merch',
         color: '#feca57',
-        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop'
+        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop&auto=format'
     },
     {
         id: 5,
         name: 'Снаряжение и приманки',
         target: 'equipment',
         color: '#9b59b6',
-        image: 'https://profextrim.ru/upload/medialibrary/3e8/3e8515f18bdf62e97ce24b9086fc3e74.jpg'
+        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format'
     }
 ]
 
