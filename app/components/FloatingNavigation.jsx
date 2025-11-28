@@ -81,22 +81,32 @@ export default function BetterFloatingNavigation() {
                 const baseAngle = (index / navigationItems.length) * Math.PI * 2 - Math.PI / 2
                 const currentAngle = baseAngle + (rotationAngleRef.current * Math.PI / 180)
 
-                // Вычисляем позицию на круге относительно центра логотипа
-                // Используем точные математические вычисления для равномерного распределения
+                // Вычисляем позицию на круге относительно центра логотипа (3D цилиндр)
                 const x = Math.cos(currentAngle) * radius
                 const y = Math.sin(currentAngle) * radius
+
+                // Добавляем глубину для 3D эффекта (цилиндрическое расположение)
+                // Карточки, которые дальше от камеры (сзади), должны иметь отрицательный z
+                // Карточки, которые ближе к камере (спереди), должны иметь положительный z
+                const z = Math.sin(currentAngle) * 150 // Глубина для эллиптического эффекта
+
+                // Вычисляем масштаб в зависимости от глубины (для перспективы)
+                // Карточки сзади (отрицательный z) должны быть меньше
+                // Карточки спереди (положительный z) должны быть больше
+                // Базовый масштаб 1.0, диапазон от 0.7 (сзади) до 1.3 (спереди)
+                const scale = 1 + (z / 500) // Масштаб в зависимости от глубины
 
                 // Получаем текущие значения tilt для этой карточки
                 const tilt = tiltRefs.current[index] || { rotateX: 0, rotateY: 0 }
 
-                // Устанавливаем позицию карточки точно по центру
-                // Используем translate(-50%, -50%) чтобы центрировать карточку на позиции
-                // Добавляем 3D tilt эффект к базовому transform
+                // Устанавливаем позицию карточки в 3D пространстве
+                // Карточки остаются обращенными к зрителю, но имеют глубину и масштаб
                 card.style.left = `${logoCenter.x + x}px`
                 card.style.top = `${logoCenter.y + y}px`
                 card.style.transform = `
                     translate(-50%, -50%) 
-                    perspective(1000px) 
+                    translateZ(${z}px)
+                    scale(${scale})
                     rotateX(${tilt.rotateX}deg) 
                     rotateY(${tilt.rotateY}deg)
                 `
